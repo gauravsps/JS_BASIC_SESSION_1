@@ -251,4 +251,6 @@ function outest() {
 }
 let a = 100;
 outest()("Hello There")();
+
+10. Learn about Errors and error handling in JS , Give examples of error handling ?
 ``
