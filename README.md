@@ -1,224 +1,254 @@
-# JS_BASIC_SESSION_1
+# JS_Session_2
 
-## Introduction
-JavaScript is a lightweight, cross-platform, and interpreted compiled programming language which is also known as the scripting language for webpages.
-JS is a dynamically typed and a single-threaded language, which means it has only one call stack that is used to execute the program.
+## Function Introduction
+A function is a "subprogram" that can be called by code external (or internal, in the case of recursion) to the function. Like the program itself, a function is composed of a sequence of statements called the function body. Values can be passed to a function as parameters, and the function will return a value.
 
-## Why we use JS 
-We use javascript so that we can make our page interactive , For example ---> You can take any website like amazon , google or anything , content is changing dynamically
-It's happening because of javascript
+In JavaScript, functions are first-class objects, because they can be passed to other functions, returned from functions, and assigned to variables and properties. They can also have properties and methods just like any other object. What distinguishes them from other objects is that functions can be called.
 
-## Applications of JavaScript
-
-Web Development: Adding interactivity and behavior to static sites JavaScript was invented to do this in 1995. By using AngularJS that can be achieved so easily.
-    Web Applications: With technology, browsers have improved to the extent that a language was required to create robust web applications. When we explore a map in       Google Maps then we only need to click and drag the mouse. All detailed view is just a click away, and this is possible only because of JavaScript. It uses         Application Programming Interfaces(APIs) that provide extra power to the code. The Electron and React is helpful in this department.
-    
-Server Applications: With the help of Node.js, JavaScript made its way from client to server and node.js is the most powerful on the server-side.
-    
-Games: Not only in websites, but JavaScript also helps in creating games for leisure. The combination of JavaScript and HTML 5 makes JavaScript popular in game development as well. It provides the EaseJS library which provides solutions for working with rich graphics.
-    
-Smartwatches: JavaScript is being used in all possible devices and applications. It provides a library PebbleJS which is used in smartwatch applications. This framework works for applications that require the internet for its functioning.
-    
-Art: Artists and designers can create whatever they want using JavaScript to draw on HTML 5 canvas, and make the sound more effective also can be used p5.js library.
-    
-Machine Learning: This JavaScript ml5.js library can be used in web development by using machine learning.
-
-Mobile Applications: JavaScript can also be used to build an application for non-web contexts. The features and uses of JavaScript make it a powerful tool for creating mobile applications. This is a Framework for building web and mobile apps using JavaScript. Using React Native, we can build mobile applications for different operating systems. We do not require to write code for different systems. Write once use it anywhere!
-
-## Dynamic Typing vs Static Typing
-
-Dynamic Typing -> you can change the type of variable at runtime .
-
+## Function Declaration/Defination or statement ?
+A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:
 ```
-  let a = "hellow world"
-  console.log(a);
-  a = 14
-  console.log(a);
+The name of the function.
+A list of parameters to the function, enclosed in parentheses and separated by commas.
+The JavaScript statements that define the function, enclosed in curly brackets, { /* … */ }.
+
+Example - function square (num){
+ return num * num
+}
 
 ```
 
-Static Typing - First you have to define varibales the you can perform operations on it. Example - C language.
 
-## How to Execute Javascript ?
-
-JS can executed right inside browser's,  ---> Open console and you can start writing your code here.
-Another way of exexuting Javascript is using Node js (is a run time env, you can download this and start executing js using node js).
-Or You can insert javascript inside <script></script> tag in html file.
-
-## Variables 
-
-Variables are like container, you can store diffrent data types in it, ex --> array object number etc..
-
-## Rules for Choosing variable name .
-```
-1. you can use --- letters, underscore(_), degits, $ sign
-2. Can not start variable name with numbers --> example ---> let 9Store = 'Helloworld' ---> This will give you error
-3. Javascript reserved keywords can not be used as a varibale name , example ---> let var = 5; ---> This will give you error
-4. javascript is case senstive language .... 
-ex--> let Sum = 5,
-      let sum = 210; 
-    Both sum and Sum are diffrent ..
-```
-
-## Var vs Let Vs Const in Javascript
-
-Var was used before es6 ---> Rule of thumb --- Never use var , it can create bug in you projects. 
+## What is Function Expression ?
+A function expression is very similar to and has almost the same syntax as a function declaration. The main difference between a function expression and a function declaration is the function name, which can be omitted in function expressions to create anonymous functions.
+In simple term -> When you store a function inside a variable ,it's callled function expression.
 
 ```
-  1. var is globally scoped varibale
-   let and const are block scoped.
-   
-   {
-     var a = 10;
-   }
-   
-   console.log(a) // OP 10
+const square = function (num) {
+    return num * num 
+}
 
-   {
-    const  ab = 100;
-    let sum = 20;
-   }
+// here this part is called Anonymous Function
+function (num) {
+    return num * num 
+} 
 
-    console.log(ab,sum) // Uncaught ReferenceError
-  
-
-  2. var can be updated and redecalred with in its scope
-  3. let can be updated but not re-declared.
-  4. const  can neither be updated not be redclared .
-  5. var varibales are initilized with undefined where let and const varibale are not initialized.
-  6. const must be initilized during declaration unlike let and var.
+Anonymous Function -  Function which have no name, it's used in a place where functions are treated as value. 
 
 ```
 
-## Data Type In JS 
-1. Primitivie (Null, Number,String, symbol, Undefined, Boolean , Big Int)
-2. Non Primitive (Objects, Array).
+## How to call function expression ?
+We can call this like a normal function ==> square(5);
+
+## Function hoisting ?
+```
+console.log(square(5)); // 25
+
+function square(n) {
+  return n * n;
+}
+```
+This code runs without any error, despite the square() function being called before it's declared. This is because the JavaScript interpreter hoists the entire function declaration to the top of the current scope, so the code above is equivalent to:
 
 ```
-Primitivie DT Examples ->
-let a = null; 
-let b = 3 ;
-let c = true;
-let d="java";
-let e = BigInt("567") + BigInt("3");
-let f = Symbol("Description of symbol");
-let g = undefined 
+// All function declarations are effectively at the top of the scope
+function square(n) {
+  return n * n;
+}
 
-
-Non Primitive -
-1. Object - Object values are written as name : value pairs (name and value separated by a colon).
- 
-Const sampleObj = {
-            name:'JS',
-            id:123,
-            Total:999,
-           }
-
-How to access object values ---> 
-sampleObj.name or sampleObj['name']
-
-
-2. Array - An array is a special variable, which can hold more than one value. 
-
-Example-
-
-let store = ['car','bike',20];
-
+console.log(square(5)); // 25
 ```
 
-## Operators in JavaScript
-
-There are different types of JavaScript operators:
-
-    1. Arithmetic Operators
-    2. Assignment Operators
-    3. Comparison Operators
-    4. Logical Operators
-    5. Conditional Operators
-    6. Type Operators  -> typeof 1
+Function hoisting only works with function declarations — not with function expressions. The code below will not work.
 
 ```
-1. Arithmetic Operators 
-
-Operator 	Description
-    + 	  Addition
-    - 	  Subtraction
-    * 	  Multiplication
-    ** 	  Exponentiation (ES2016) Example -> 2 ** 2 = 4 ; 2 ** 3 = 8
-    / 	  Division
-    % 	  Modulus (Division Remainder)  Example -> 5 % 2 = 1
-    ++ 	  Increment
-    -- 	  Decrement
-
-
-
-Checkout this link for more examples - https://www.w3schools.com/js/js_operators.asp
-
+console.log(square); // ReferenceError: Cannot access 'square' before initialization
+const square = function (n) {
+  return n * n;
+};
 ```
 
-## JS Strings 
+## What are First Class Function ?
 
-we can use single quotes or double quotes or Template Literal
-Example ->
+A programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable.
+
+1. Assigning a function to a variable
+```
+const foo = () => {
+  console.log("foobar");
+};
+foo()
+```
+2. Passing a function as an argument
 
 ```
-let total = 25
-let str = "hello world"
-let str2 = 'hello world'
-let str3 = `your age is ${total}` 
-
+function sayHello() {
+  return "Hello, ";
+}
+function greeting(helloMessage, name) {
+  console.log(helloMessage() + name);
+}
+// Pass `sayHello` as an argument to `greeting` function
+greeting(sayHello, "JavaScript!");
+// Hello, JavaScript!
 ```
+3. We can return function from another function
 
-## String Methods 
+## Function Scope
 
-```
-JavaScript String Length 
-let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let length = text.length;
+Variables defined inside a function cannot be accessed from anywhere outside the function, because the variable is defined only in the scope of the function. However, a function can access all variables and functions defined inside the scope in which it is defined.
 
-Slice Method - > slice() extracts a part of a string and returns the extracted part in a new string.
-
-The method takes 2 parameters: start position, and end position (end not included)
-
-Example -
-
-let text = "Hello World! write your first program";
-let part = text.slice(6,11);
-
-console.log(text.slice(6));
-
-
-
-Note
-
-JavaScript counts positions from zero.
-
-First position is 0.
-
-Second position is 1.
-
+In other words, a function defined in the global scope can access all variables defined in the global scope. A function defined inside another function can also access all variables defined in its parent function, and any other variables to which the parent function has access.
 
 
 ```
+// The following variables are defined in the global scope
+const num1 = 20;
+const num2 = 3;
+const name = "Chamakh";
 
+// This function is defined in the global scope
+function multiply() {
+  return num1 * num2;
+}
+
+multiply(); // Returns 60
+
+// A nested function example
+function getScore() {
+  const num1 = 2;
+  const num2 = 3;
+
+  function add() {
+    return `${name} scored ${num1 + num2}`;
+  }
+
+  return add();
+}
+
+getScore(); // Returns "Chamakh scored 5"
+
+```
+
+## Param vs argument
+
+```
+function sum(a,b){  ===> When we receive values inside the function it is called as params
+    return a+b;
+}
+
+sum(5,4) ===> Arguments
+```
+
+
+## Closures in JS
+
+Functions bundled together with it's lexical scope together makes a closure, 
+
+Lexical Environment = local memory + lexical env of its parent. Hence, Lexical Environement is the local memory along with the lexical environment of its parent.
+
+Lexical: In hierarchy, In order.
+
+Closures are one of the most powerful features of JavaScript. JavaScript allows for the nesting of functions and grants the inner function full access to all the variables and functions defined inside the outer function (and all other variables and functions that the outer function has access to).
+
+However, the outer function does not have access to the variables and functions defined inside the inner function. This provides a sort of encapsulation for the variables of the inner function.
+
+Also, since the inner function has access to the scope of the outer function, the variables and functions defined in the outer function will live longer than the duration of the outer function execution, if the inner function manages to survive beyond the life of the outer function. A closure is created when the inner function is somehow made available to any scope outside the outer function.
+
+```
+// The outer function defines a variable called "name"
+const pet = function (name) {
+  const getName = function () {
+    // The inner function has access to the "name" variable of the outer function
+    return name;
+  };
+  return getName; // Return the inner function, thereby exposing it to outer scopes
+};
+const myPet = pet("Hello JS");
+
+myPet(); // Returns "Hello JS"
+
+```
+
+JavaScript has a lexcial scope environment. If a function needs to access a variable, it first goes to its local memory. When it does not find it there, it goes to the memory of its lexical parent. 
+// See Below code, Over here function y along with its lexical scope i.e. (function x) would be called a closure.
+```
+function x() {
+    var a = 7;
+    function y() {
+      console.log(a);
+    }
+    return y;
+  }
+  var z = x();
+  console.log(z); // value of z is entire code of function y.
+  In above code, When y is returned, not only is the function returned but the entire closure (fun y + its lexical scope) is returned and put inside z. 
+  So when z is used somewhere else in program, it still remembers var a inside x()
+
+```
 
 ## Assignment
 
+1. Write a function that takes an integer minutes and converts it to seconds.
+2. Create a function that takes a number as an argument, increments the number by +1 and returns the result.
+3. Create a function that takes an array containing only numbers and return the first element.
+4. Create a function that takes a number as its only argument and returns true if it's less than or equal to zero, otherwise return false.
+5. What is fat arrow function, Solve above given problems using fat arrow functions , Difference bw fat arrow function and normal function ?
+6. Will the below code still forms a closure?
 ```
-1. Create a variable of type string and try to add a number to it ?
-2. find the datatype of the string in last question ?
-3. Create a const object in js , can you change it to hold a number later ?
-4. Try to add a new key to the const object in last question,
-5. Write a js program to create a word-meaning dictonary of 5 words ?
-6. Write a js program to store name email phone number and marks of a student using Object?
-7. Use logical operator to find whether the age of a person lies between 10 and 30 ?
-8. Write a js program to find whether a number is odd or even ?
+function outer() {
+  function inner() {
+    console.log(a);
+  }
+  var a = 10;
+  return inner;
+}
+outer()();
+ ```
+ 7. Will inner function have the access to outer function argument?
+ ```
+function outer(str) {
+  let a = 10;
+  function inner() {
+    console.log(a, str);
+  }
+  return inner;
+}
+outer("Hello There")(); 
 
-9. Convert a given string to lower case
-   example "HELLO WORLD" -> hello world
-
-10 . Your Current balance is 100 Rupees
-    Extract Number from above given string.
-
-11. Explore string methods of javascript
 ```
+
+8. In below code, will inner form closure with outest?
+```
+
+function outest() {
+  var c = 20;
+  function outer(str) {
+    let a = 10;
+    function inner() {
+      console.log(a, c, str);
+    }
+    return inner;
+  }
+  return outer;
+}
+outest()("Hello There")();
+
+```
+
+9. Output of below code and explaination?
+```
+function outest() {
+  var c = 20;
+  function outer(str) {
+    let a = 10;
+    function inner() {
+      console.log(a, c, str);
+    }
+    return inner;
+  }
+  return outer;
+}
+let a = 100;
+outest()("Hello There")();
+``
